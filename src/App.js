@@ -1,25 +1,159 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import CartModal from './CartModal';
+import { FaShoppingCart } from 'react-icons/fa';
+import './styles.css';
 
-function App() {
+const App = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [cartItems, setCartItems] = useState([]);
+  const [isCartOpen, setCartOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(
+          'https://mks-challenge-api-frontend.herokuapp.com/api/v1/products?page=1&rows=10&sortBy=id&orderBy=DESC',
+          {
+            headers: {
+              Accept: 'application/json',
+            },
+          }
+        );
+        const data = await response.json();
+        setLoading(false);
+        setProducts(data.products);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleAddToCart = (product) => {
+    const existingItem = cartItems.find((item) => item.id === product.id);
+  
+    if (existingItem) {
+      const updatedCartItems = cartItems.map((item) =>
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+      setCartItems(updatedCartItems);
+    } else {
+      const updatedCartItems = [...cartItems, { ...product, quantity: 1 }];
+      setCartItems(updatedCartItems);
+    }
+  };
+  
+  const handleRemoveFromCart = (itemId) => {
+    const updatedCartItems = cartItems.filter((item) => item.id !== itemId);
+    setCartItems(updatedCartItems);
+  };
+
+  const handleIncreaseQuantity = (itemId) => {
+    setCartItems((prevItems) => {
+      return prevItems.map((item) => {
+        if (item.id === itemId) {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+          };
+        }
+        return item;
+      });
+    });
+  };
+
+  const handleDecreaseQuantity = (itemId) => {
+    setCartItems((prevItems) => {
+      return prevItems.map((item) => {
+        if (item.id === itemId && item.quantity > 0) {
+          return {
+            ...item,
+            quantity: item.quantity - 1,
+          };
+        }
+        return item;
+      });
+    });
+  };
+
+  const handleCartOpen = () => {
+    setCartOpen(true);
+  };
+
+  const handleCartClose = () => {
+    setCartOpen(false);
+  };
+
+  const renderShimmers = () => {
+    const shimmerCount = 3;
+    const shimmers = [];
+
+    for (let i = 0; i < shimmerCount; i++) {
+      shimmers.push(
+        <div key={i} className="shimmer-placeholder">
+          <div className="shimmer-image"></div>
+          <div className="shimmer-text"></div>
+        </div>
+      );
+    }
+
+    return shimmers;
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div>
+        <h1 className="header">Header</h1>
+        <button className="cartButton" onClick={() => handleCartOpen()}>
+          {(!loading && products.length > 0) && <FaShoppingCart />}
+        </button>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="product-grid">
+                {loading ? (
+                  <div>{renderShimmers()}</div>
+                ) : products && products.length > 0 ? (
+                  products.map((product) => (
+                    <div key={product.id} className="product-card">
+                      <img src={product.photo} alt={product.name} className="product-image" />
+                      <h4 className="product-price">{product.price}</h4>
+                      <h2 className="product-name">{product.name}</h2>
+                      <p className="product-description">{product.description}</p>
+                      <button
+                        className="Comprar"
+                        aria-hidden="true"
+                        onClick={() => handleAddToCart(product)}
+                      >
+                        COMPRAR
+                      </button>
+                    </div>
+                  ))
+                ) : (
+                  <p>No products available.</p>
+                )}
+              </div>
+            }
+          />
+        </Routes>
+        {isCartOpen && (
+          <CartModal
+            cartItems={cartItems}
+            onClose={handleCartClose}
+            onRemoveFromCart={handleRemoveFromCart}
+            onIncreaseQuantity={handleIncreaseQuantity}
+            onDecreaseQuantity={handleDecreaseQuantity}
+          />
+        )}
+        <h1 className="footer">Footer</h1>
+      </div>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
