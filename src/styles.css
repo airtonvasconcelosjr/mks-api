@@ -10,20 +10,37 @@ body{
     height: 100vh;
     }
     
-    .header {
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #f0f0f0;
-    text-align: center;
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #0F52BA;
+      padding: 10px;
+    }
+    
+    .header-text {
+      margin: 0;
+      text-align: left;
+      color: white;
     }
     
     .footer {
-    background-color: #f0f0f0;
-    text-align: center;
-    width: 100vw;
-    height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #0F52BA;
+      padding: 10px;
+      margin-bottom: auto;
     }
+    
     
     .product-grid {
     display: flex;
@@ -132,19 +149,24 @@ body{
       }     
       
       .cartButton {
-        position: fixed;
-        top: 20px;
-        right: 50px;
         background: none;
         border: none;
         font-size: 24px;
         color: rgb(34, 34, 255);
         cursor: pointer;
-        transition: transform 0.5s ease-in-out; 
+        transition: transform 0.5s ease-in-out;
+        display: flex;
+        align-items: center;
+        color: black;
+        background-color: white;
+        border-radius: 15px;
+        padding: 3px 10px;
+        font-size: 18px;
+        margin-right: 20px;
       }
 
       .cartButton:hover {
-        transform: scale(1.4);
+        transform: scale(1.3);
       }
 
       .qtd{
@@ -176,8 +198,10 @@ body{
       }
 
       .itemCountNumber{
-        margin-left: 10px;
-        padding-bottom: 25px;
+        margin-left: 5px;
+        padding-top: 5px;
+        color: black;
+        font-size: 16px;
       }
 
       .cart-img{
