@@ -109,12 +109,14 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div>
-        <h1 className="header">Header</h1>
+      <div className="header-container">
+        <h1 className="header-text">Header</h1>
         <button className="cartButton" onClick={() => handleCartOpen()}>
           {!loading && products.length > 0 && <FaShoppingCart />}
           <span className="itemCountNumber">{itemCount}</span>
         </button>
+      </div>
+        <div>
         <Routes>
           <Route
             path="/"
