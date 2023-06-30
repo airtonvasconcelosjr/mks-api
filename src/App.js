@@ -10,6 +10,7 @@ const App = () => {
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setCartOpen] = useState(false);
   const [itemCount, setItemCount] = useState(0);
+  const [showCartButton, setShowCartButton] = useState(false);
 
   const handleItemCountChange = (count) => {
     setItemCount(count);
@@ -29,6 +30,7 @@ const App = () => {
         );
         const data = await response.json();
         setLoading(false);
+        setShowCartButton(true);
         setProducts(data.products);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -111,10 +113,12 @@ const App = () => {
     <BrowserRouter>
       <div className="header-container">
         <h1 className="header-text">Header</h1>
+        {showCartButton && (
         <button className="cartButton" onClick={() => handleCartOpen()}>
           {!loading && products.length > 0 && <FaShoppingCart />}
           <span className="itemCountNumber">{itemCount}</span>
         </button>
+        )}
       </div>
         <div>
         <Routes>

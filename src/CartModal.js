@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './CartModal.css';
 
 const CartModal = ({ cartItems, onClose, onRemoveFromCart, onItemCountChange }) => {
   const [itemQuantities, setItemQuantities] = useState({});
@@ -73,29 +74,30 @@ const CartModal = ({ cartItems, onClose, onRemoveFromCart, onItemCountChange }) 
         <div className="cart-content">
           <ul className="cart-items">
             {cartItems.map((item) => (
-              <h5 key={item.id} className="cart-item">
-                <div>
-                  <img src={item.photo} className="cart-img"></img>
-      
-                  
-                  <h3>{item.name}</h3>
-                  <h3>{item.price}</h3>
-                  <div>
-                    <h5>Qtd:</h5>
-                    <button onClick={() => handleDecreaseQuantity(item.id)}>-</button>
-                    <input
-                      className="qtd"
-                      inputMode="numeric"
-                      min="1"
-                      value={itemQuantities[item.id] || 1}
-                      onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
-                    />
-                    <button onClick={() => handleIncreaseQuantity(item.id)}>+</button>
+              <li key={item.id} className="cart-item">
+                <div className="cart-product-card">
+                  <img src={item.photo} className="cart-product-img" alt="Imagem do produto" />
+                  <div className="cart-product-details">
+                    <div className="cart-product-info">
+                      <h3 className="product-name">{item.name}</h3>
+                    </div>
+                    <div className="cart-product-quantity">
+                      <span className="cart-product-quantity-label">Qtd:</span>
+                      <button onClick={() => handleDecreaseQuantity(item.id)}>-</button>
+                      <input
+                        className="cart-product-quantity-input"
+                        inputMode="numeric"
+                        min="1"
+                        value={itemQuantities[item.id] || 1}
+                        onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
+                      />
+                      <button onClick={() => handleIncreaseQuantity(item.id)}>+</button>
+                    </div>
                   </div>
-                  <p>Total: ${getTotalPrice(item)}</p>
-                  <button onClick={() => handleRemoveItem(item.id)}>Remover</button>
+                  <p className="product-price">R${getTotalPrice(item)}</p>
+                  <button className="cart-product-remove" onClick={() => handleRemoveItem(item.id)}>X</button>
                 </div>
-              </h5>
+              </li>
             ))}
           </ul>
           <div className="cart-footer">
@@ -107,6 +109,9 @@ const CartModal = ({ cartItems, onClose, onRemoveFromCart, onItemCountChange }) 
       )}
     </div>
   );
+  
+  
 };
+  
 
 export default CartModal;
