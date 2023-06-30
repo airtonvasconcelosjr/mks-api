@@ -100,13 +100,17 @@ const CartModal = ({ cartItems, onClose, onRemoveFromCart, onItemCountChange }) 
               </li>
             ))}
           </ul>
-          <div className="cart-footer">
-            <h3 className="total-price">Total da compra: {totalPrice}</h3>
-          </div>
+           
         </div>
+         
       ) : (
         <p>Acrescente produtos ao carrinho</p>
       )}
+      <div className="total-price">
+        <span>Total:</span>
+        <span>{totalPrice}</span>
+      </div>
+      <h3 className="footer-cart">Finalizar Compra</h3>
     </div>
   );
   

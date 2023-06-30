@@ -1,10 +1,12 @@
 /* App.css */
 :root {
   --azul-primario: #0F52BA;
+  --cinza:#EEEEEE;
+  --bg:#F9F9F9;
 }
 
 body {
-  background-color: #f0f0f0;
+  background-color: var(--bg);
 }
 
 .container {
@@ -37,13 +39,23 @@ body {
   color: white;
 }
 
+.header-subtext{
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: left;
+  color: white;
+  margin-left: -200px;;
+
+}
+
 .footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: var(--azul-primario);
+  justify-content: center;
+  background-color:var(--cinza);
   padding: 10px;
   margin-bottom: auto;
+  font-size: 10px;
 }
 
 .product-grid {
@@ -63,6 +75,8 @@ body {
   text-align: center;
   width: 218px;
   height: 285px;
+  border-radius: 15px;
+  box-shadow: -5px 5px 15px rgba(0,0,0, 0.2);
 }
 
 .product-description {
@@ -79,6 +93,18 @@ body {
 
 .Comprar {
   margin-top: auto;
+  background-color: var(--azul-primario);
+  color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  outline: none;
+  border: none;
+  padding-top: 5px ;
+  padding-bottom: 5px;
+}
+
+.icon{
+  margin-right: 10px;
 }
 
 .product-image {
