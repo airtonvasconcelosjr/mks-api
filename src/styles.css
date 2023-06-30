@@ -180,6 +180,15 @@ body{
         padding-bottom: 25px;
       }
 
+      .cart-img{
+        width: 30%;
+        height: auto;
+      }
+
+      .cart-items{
+        padding: 0;
+      }
+
 
     
     @keyframes shimmer {
