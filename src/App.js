@@ -112,7 +112,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="header-container">
-        <h1 className="header-text">Header</h1>
+        <h1 className="header-text">MKS </h1>
         {showCartButton && (
         <button className="cartButton" onClick={() => handleCartOpen()}>
           {!loading && products.length > 0 && <FaShoppingCart />}
@@ -144,7 +144,7 @@ const App = () => {
                           onClick={() => handleAddToCart(product)}
                           disabled={isProductInCart}
                         >
-                          <FaShoppingBag />
+                          <FaShoppingBag className='icon'/>
                           {isProductInCart ? 'Inserido no carrinho' : 'COMPRAR'}
                         </button>
                       </div>
@@ -170,7 +170,7 @@ const App = () => {
             />
           </div>
         )}
-        <h1 className="footer">Footer</h1>
+        <h1 className="footer">MKS Sistemas © Todos os direitos reservados</h1>
       </div>
     </BrowserRouter>
   );

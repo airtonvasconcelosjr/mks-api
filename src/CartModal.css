@@ -18,7 +18,7 @@
 .cart-modal {
   width: 400px;
   background-color: var(--azul-primario);
-  height: 100vh;
+  height: 90vh;
   padding: 20px;
   box-sizing: border-box;
   overflow-y: auto;
@@ -66,22 +66,34 @@
   font-size: 12px;
 }
 
-.total-price {
-  position: relative;
-  bottom: 0;
-  right: 0;
-  background-color: #fff;
+.footer-cart {
+  position: fixed;
+  color: white;
+  width: 400px;
+  height: 97px;
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 18px;
   font-weight: bold;
+  z-index: 9;
+  right: 0px;
+  bottom: 0;
+  margin-bottom: auto;
 }
 
-.cart-footer {
-  margin-top: 20px;
+.total-price {
+  position: fixed;
+  bottom: 120px;
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
 }
-
 
 .itemCountNumber {
   margin-left: 5px;
