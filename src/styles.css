@@ -1,4 +1,6 @@
 /* App.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 :root {
   --azul-primario: #0F52BA;
   --cinza:#EEEEEE;
@@ -7,7 +9,10 @@
 
 body {
   background-color: var(--bg);
-}
+  font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
 .container {
   display: flex;
@@ -39,6 +44,11 @@ body {
   color: white;
 }
 
+.product-details {
+  display: flex;
+  align-items: center; /* Alinha os elementos verticalmente */
+}
+
 .header-subtext{
   margin-top: 0;
   margin-bottom: 0;
@@ -63,7 +73,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
-  margin: 20px 50px 0 50px;
+  margin: 40px 150px ;
 }
 
 .product-card {
@@ -88,7 +98,7 @@ body {
 }
 
 .product-price {
-  margin: 0;
+  margin-left: 2px;
 }
 
 .Comprar {
@@ -150,11 +160,30 @@ body {
   align-items: end;
 }
 
+.Comprar[disabled] {
+  opacity: 0.6; 
+  cursor: not-allowed; 
+}
+
 @keyframes shimmer {
   0% {
     background-position: -1000px 0;
   }
   100% {
     background-position: 1000px 0;
+  }
+}
+
+
+
+@media screen and (max-width: 1311px) {
+  .product-grid {
+    margin: 20px 40px 0 40px;
+  }
+}
+
+@media screen and (max-width: 1090px) {
+  .product-grid {
+    margin: 20px 20px 0 20px;
   }
 }

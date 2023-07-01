@@ -8,7 +8,7 @@ const App = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
-  const [isCartOpen, setCartOpen] = useState(false);
+  const [isCartOpen, setCartOpen] = useState(true);
   const [itemCount, setItemCount] = useState(0);
   const [showCartButton, setShowCartButton] = useState(false);
 
@@ -135,8 +135,10 @@ const App = () => {
                     return (
                       <div key={product.id} className="product-card">
                         <img src={product.photo} alt={product.name} className="product-image" />
-                        <h4 className="product-price">{product.price}</h4>
-                        <h2 className="product-name">{product.name}</h2>
+                        <div className="product-details">
+                          <h2 className="product-name">{product.name}</h2>
+                          <h4 className="product-price">{product.price}</h4>
+                        </div>
                         <p className="product-description">{product.description}</p>
                         <button
                           className="Comprar"
@@ -148,6 +150,7 @@ const App = () => {
                           {isProductInCart ? 'Inserido no carrinho' : 'COMPRAR'}
                         </button>
                       </div>
+
                     );
                   })
                 ) : (

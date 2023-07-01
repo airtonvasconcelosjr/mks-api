@@ -69,7 +69,7 @@ const CartModal = ({ cartItems, onClose, onRemoveFromCart, onItemCountChange }) 
   return (
     <div className="cart-modal">
       <button className="btn-close" onClick={onClose}>X</button>
-      <h2>Carrinho de compras</h2>
+      <h2 className="cart-title">Carrinho de compras</h2>
       {cartItems.length > 0 ? (
         <div className="cart-content">
           <ul className="cart-items">
@@ -104,11 +104,11 @@ const CartModal = ({ cartItems, onClose, onRemoveFromCart, onItemCountChange }) 
         </div>
          
       ) : (
-        <p>Acrescente produtos ao carrinho</p>
+        <p className="cart-message">Acrescente produtos ao carrinho</p>
       )}
       <div className="total-price">
         <span>Total:</span>
-        <span>{totalPrice}</span>
+        <span>R$ {totalPrice}</span>
       </div>
       <h3 className="footer-cart">Finalizar Compra</h3>
     </div>

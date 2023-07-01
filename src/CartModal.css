@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 :root {
   --azul-primario: #0F52BA;
+}
+
+.cart-title{
+  color: white;
+}
+
+.cart-message{
+  color: white;
 }
 
 .cart-overlay {
@@ -93,6 +102,10 @@
   font-size: 18px;
   font-weight: bold;
   color: white;
+   border: 2px solid white; /* Adiciona uma borda branca ao redor do elemento */
+  padding: 5px; /* Adiciona um espaçamento interno para a borda */
+  background-color: rgba(0, 0, 0, 0.7); /* Define um fundo com transparência para melhorar a visibilidade */
+  z-index: 999; /* Ajusta a sobreposição do elemento em relação a outros elementos */
 }
 
 .itemCountNumber {
@@ -123,6 +136,7 @@
   margin-bottom: 10px;
   position: relative;
   border-radius: 15px;
+  border-bottom: 25px;
 }
 
 .cart-product-img {
