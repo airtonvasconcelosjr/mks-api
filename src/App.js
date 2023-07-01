@@ -137,7 +137,7 @@ const App = () => {
                         <img src={product.photo} alt={product.name} className="product-image" />
                         <div className="product-details">
                           <h2 className="product-name">{product.name}</h2>
-                          <h4 className="product-price">{product.price}</h4>
+                          <h4 className="product-price">R$ {Math.round(product.price)}</h4>
                         </div>
                         <p className="product-description">{product.description}</p>
                         <button
