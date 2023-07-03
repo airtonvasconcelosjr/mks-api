@@ -8,7 +8,7 @@ const App = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
-  const [isCartOpen, setCartOpen] = useState(true);
+  const [isCartOpen, setCartOpen] = useState(false);
   const [itemCount, setItemCount] = useState(0);
   const [showCartButton, setShowCartButton] = useState(false);
 
@@ -113,6 +113,7 @@ const App = () => {
     <BrowserRouter>
       <div className="header-container">
         <h1 className="header-text">MKS </h1>
+        <h1 className="header-subtext">Sistemas</h1>
         {showCartButton && (
         <button className="cartButton" onClick={() => handleCartOpen()}>
           {!loading && products.length > 0 && <FaShoppingCart />}
