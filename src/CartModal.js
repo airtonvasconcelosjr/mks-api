@@ -75,28 +75,29 @@ const CartModal = ({ cartItems, onClose, onRemoveFromCart, onItemCountChange }) 
           <ul className="cart-items">
             {cartItems.map((item) => (
               <li key={item.id} className="cart-item">
-                <div className="cart-product-card">
-                  <img src={item.photo} className="cart-product-img" alt="Imagem do produto" />
-                  <div className="cart-product-details">
-                    <div className="cart-product-info">
-                      <h3 className="cart-product-name">{item.name}</h3>
-                    </div>
-                    <div className="cart-product-quantity">
-                      <span className="cart-product-quantity-label">Qtd:</span>
-                      <button className="quantity-minus-button" onClick={() => handleDecreaseQuantity(item.id)}>-</button>
-                      <input
-                        className="cart-product-quantity-input"
-                        inputMode="numeric"
-                        min="1"
-                        value={itemQuantities[item.id] || 1}
-                        onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
-                      />
-                      <button className="quantity-plus-button" onClick={() => handleIncreaseQuantity(item.id)}>+</button>
-                    </div>
-                  </div>
-                  <p className="cart-product-price">R${getTotalPrice(item)}</p>
-                  <button className="cart-product-remove" onClick={() => handleRemoveItem(item.id)}>X</button>
-                </div>
+               <div class="cart-product-card">
+  <img class="cart-product-img" src={item.photo} alt={item.name} />
+  <div class="cart-product-details">
+    <p class="cart-product-name">{item.name}</p>
+    <div class="cart-product-info">
+      <div class="cart-product-quantity">
+        <span class="cart-product-quantity-label">Qtd:</span>
+        <button class="quantity-minus-button" onClick={() => handleDecreaseQuantity(item.id)}>-</button>
+        <input
+          class="cart-product-quantity-input"
+          inputMode="numeric"
+          min="1"
+          value={itemQuantities[item.id] || 1}
+          onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
+        />
+        <button class="quantity-plus-button" onClick={() => handleIncreaseQuantity(item.id)}>+</button>
+      </div>
+      <p class="cart-product-price">R${getTotalPrice(item)}</p>
+      <button className="cart-product-remove" onClick={() => handleRemoveItem(item.id)}>X</button>
+    </div>
+  </div>
+</div>
+
               </li>
             ))}
           </ul>
