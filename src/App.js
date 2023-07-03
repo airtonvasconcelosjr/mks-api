@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CartModal from './CartModal';
 import { FaShoppingCart, FaShoppingBag } from 'react-icons/fa';
+import  { SkeletonTheme } from 'react-loading-skeleton';
 import './styles.css';
 
 const App = () => {
@@ -11,7 +12,8 @@ const App = () => {
   const [isCartOpen, setCartOpen] = useState(false);
   const [itemCount, setItemCount] = useState(0);
   const [showCartButton, setShowCartButton] = useState(false);
-
+  console.log('Loading:', loading);
+  console.log('Products:', products);
   const handleItemCountChange = (count) => {
     setItemCount(count);
   };
@@ -94,7 +96,7 @@ const App = () => {
   };
 
   const renderShimmers = () => {
-    const shimmerCount = 3;
+    const shimmerCount = 4;
     const shimmers = [];
 
     for (let i = 0; i < shimmerCount; i++) {
@@ -115,20 +117,22 @@ const App = () => {
         <h1 className="header-text">MKS </h1>
         <h1 className="header-subtext">Sistemas</h1>
         {showCartButton && (
-        <button className="cartButton" onClick={() => handleCartOpen()}>
-          {!loading && products.length > 0 && <FaShoppingCart />}
-          <span className="itemCountNumber">{itemCount}</span>
-        </button>
+          <button className="cartButton" onClick={() => handleCartOpen()}>
+            {!loading && products.length > 0 && <FaShoppingCart />}
+            <span className="itemCountNumber">{itemCount}</span>
+          </button>
         )}
       </div>
-        <div>
+      <div>
         <Routes>
           <Route
             path="/"
             element={
               <div className="product-grid">
                 {loading ? (
-                  <div>{renderShimmers()}</div>
+                  <SkeletonTheme color="yellow" highlightColor="#e8e8e8">
+                    {renderShimmers()}
+                  </SkeletonTheme>
                 ) : products && products.length > 0 ? (
                   products.map((product, index) => {
                     const isProductInCart = cartItems.some((item) => item.id === product.id);
@@ -147,11 +151,10 @@ const App = () => {
                           onClick={() => handleAddToCart(product)}
                           disabled={isProductInCart}
                         >
-                          <FaShoppingBag className='icon'/>
+                          <FaShoppingBag className="icon" />
                           {isProductInCart ? 'Inserido no carrinho' : 'COMPRAR'}
                         </button>
                       </div>
-
                     );
                   })
                 ) : (

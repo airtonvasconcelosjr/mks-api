@@ -67,6 +67,7 @@ body {
   padding: 10px;
   margin-bottom: auto;
   font-size: 10px;
+  bottom: 0;
 }
 
 .product-grid {
@@ -145,23 +146,35 @@ body {
   font-size: 10px;
   color: #888;
 }
-
 .shimmer-placeholder {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
-.shimmer-placeholder::before {
-  content: '';
+.shimmer-image {
   width: 150px;
-  height: auto;
-  padding-bottom: 80%;
-  background-color: #f9f9f9;
-  animation: shimmer 1s infinite linear;
+  height: 150px;
+  background-color: #e8e8e8;
+  margin-bottom: 10px;
+}
+
+.shimmer-text {
+  width: 200px;
+  height: 20px;
+  background-color: #e8e8e8;
+  margin-bottom: 300px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
 }
 
 .Comprar {
