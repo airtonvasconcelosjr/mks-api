@@ -103,10 +103,10 @@
   font-size: 18px;
   font-weight: bold;
   color: white;
-   border: 2px solid white; 
-  padding: 5px; 
-  background-color: rgba(0, 0, 0, 0.7); 
-  z-index: 999; 
+   border: 2px solid white; /* Adiciona uma borda branca ao redor do elemento */
+  padding: 5px; /* Adiciona um espaçamento interno para a borda */
+  background-color: rgba(0, 0, 0, 0.7); /* Define um fundo com transparência para melhorar a visibilidade */
+  z-index: 999; /* Ajusta a sobreposição do elemento em relação a outros elementos */
 }
 
 .itemCountNumber {
@@ -162,15 +162,15 @@
 
 .cart-product-quantity {
   display: grid;
-  grid-template-columns: 1fr auto auto; 
-  grid-gap: 5px; 
+  grid-template-columns: 1fr auto auto; /* Distribui o espaço em colunas */
+  grid-gap: 5px; /* Espaçamento entre os itens */
   align-items: center;
   margin-top: 15px;
   margin-left: 10px;
 }
 
 .cart-product-quantity-label {
-  grid-column: 1 / span 3; 
+  grid-column: 1 / span 3; /* Ocupa todas as 3 colunas */
   text-align: left;
   font-size: 10px;
   margin-left: 5px;
@@ -178,7 +178,7 @@
 }
 
 .cart-product-quantity-input {
-  grid-column: 2; 
+  grid-column: 2; /* Ocupa a segunda coluna */
   width: 15px;
   text-align: center;
   margin: 0;
@@ -223,10 +223,17 @@
   font-weight: 200;
 }
 
-@media screen and (max-width: 480px) {
 
+@media screen and (max-width: 480px) {
   .cart-modal {
     width: 310px;
+    height: 5550vh;
+    max-height: calc(150vh - 97px - 20px); 
+  }
+  
+  .cart-items {
+    max-height: calc(90vh - 97px - 20px - 50px); 
+    overflow-y: auto;
   }
   .cart-product-card {
     width: 250px;
@@ -328,4 +335,44 @@
     outline: none;
     border: none;
   }
+
+  .total-price {
+    position: fixed;
+    bottom: 5;
+    width: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border: 2px solid white; 
+    padding: 5px; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 999; 
+  }
+
+  .footer-cart {
+    position: fixed;
+    color: white;
+    width: 311px;
+    height: 80px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 9;
+    right: -1px;
+    bottom: 0;
+    margin-bottom: auto;
+  }
+
+  .cart-title{
+    top: 0;
+    width: 60%;
+    color: white;
+  }
 }
+
