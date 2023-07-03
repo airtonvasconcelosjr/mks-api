@@ -95,6 +95,24 @@ const CartModal = ({ cartItems, onClose, onRemoveFromCart, onItemCountChange }) 
                     </div>
                   </div>
                   <p className="cart-product-price">R${getTotalPrice(item)}</p>
+                  <div className="cart-product-info-mob">
+                      <h3 className="cart-product-name-mob">{item.name}</h3>
+                    </div>
+                  <div className="cart-product-quantity-mob">
+                    <span className="cart-product-quantity-label-mob">Qtd:</span>
+                    <div className="quantity-price-container">
+                      <button className="quantity-minus-button-mob" onClick={() => handleDecreaseQuantity(item.id)}>-</button>
+                      <input
+                        className="cart-product-quantity-input-mob"
+                        inputMode="numeric"
+                        min="1"
+                        value={itemQuantities[item.id] || 1}
+                        onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
+                      />
+                         <button className="quantity-plus-button-mob" onClick={() => handleIncreaseQuantity(item.id)}>+</button>
+                      <span className="cart-product-price-mob">R$ {getTotalPrice(item)}</span>
+                    </div>
+                  </div>
                   <button className="cart-product-remove" onClick={() => handleRemoveItem(item.id)}>X</button>
                 </div>
               </li>
