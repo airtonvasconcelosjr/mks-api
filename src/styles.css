@@ -202,12 +202,18 @@ body {
 
 @media screen and (max-width: 1311px) {
   .product-grid {
-    margin: 20px 40px 0 40px;
+    margin: 20px 40px 30px 40px;
   }
 }
 
 @media screen and (max-width: 1090px) {
   .product-grid {
-    margin: 20px 20px 0 20px;
+    margin: 20px 20px 30px 20px;
+  }
+}
+
+@media screen and (min-width: 1550px) {
+  .product-grid {
+    margin: 20px 250px 250px 250px;
   }
 }
