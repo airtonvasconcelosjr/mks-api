@@ -12,8 +12,6 @@ const App = () => {
   const [isCartOpen, setCartOpen] = useState(false);
   const [itemCount, setItemCount] = useState(0);
   const [showCartButton, setShowCartButton] = useState(false);
-  console.log('Loading:', loading);
-  console.log('Products:', products);
   const handleItemCountChange = (count) => {
     setItemCount(count);
   };
@@ -22,6 +20,7 @@ const App = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
+        await new Promise((resolve) => setTimeout(resolve, 9000));
         const response = await fetch(
           'https://mks-challenge-api-frontend.herokuapp.com/api/v1/products?page=1&rows=10&sortBy=id&orderBy=DESC',
           {
@@ -130,7 +129,7 @@ const App = () => {
             element={
               <div className="product-grid">
                 {loading ? (
-                  <SkeletonTheme color="yellow" highlightColor="#e8e8e8">
+                  <SkeletonTheme color="white" highlightColor="#e8e8e8">
                     {renderShimmers()}
                   </SkeletonTheme>
                 ) : products && products.length > 0 ? (
@@ -177,7 +176,9 @@ const App = () => {
             />
           </div>
         )}
-        <h1 className="footer">MKS Sistemas © Todos os direitos reservados</h1>
+        {!loading && products.length > 0 &&  
+          <h1 className="footer">MKS Sistemas © Todos os direitos reservados</h1>
+        }
       </div>
     </BrowserRouter>
   );

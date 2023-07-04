@@ -106,10 +106,10 @@
   font-size: 18px;
   font-weight: bold;
   color: white;
-   border: 2px solid white; /* Adiciona uma borda branca ao redor do elemento */
-  padding: 5px; /* Adiciona um espaçamento interno para a borda */
-  background-color: rgba(0, 0, 0, 0.7); /* Define um fundo com transparência para melhorar a visibilidade */
-  z-index: 999; /* Ajusta a sobreposição do elemento em relação a outros elementos */
+   border: 2px solid white; 
+  padding: 5px; 
+  background-color: rgba(0, 0, 0, 0.7); 
+  z-index: 999; 
 }
 
 .itemCountNumber {
@@ -165,15 +165,15 @@
 
 .cart-product-quantity {
   display: grid;
-  grid-template-columns: 1fr auto auto; /* Distribui o espaço em colunas */
-  grid-gap: 5px; /* Espaçamento entre os itens */
+  grid-template-columns: 1fr auto auto; 
+  grid-gap: 5px; 
   align-items: center;
   margin-top: 15px;
   margin-left: 10px;
 }
 
 .cart-product-quantity-label {
-  grid-column: 1 / span 3; /* Ocupa todas as 3 colunas */
+  grid-column: 1 / span 3; 
   text-align: left;
   font-size: 10px;
   margin-left: 5px;
@@ -181,7 +181,7 @@
 }
 
 .cart-product-quantity-input {
-  grid-column: 2; /* Ocupa a segunda coluna */
+  grid-column: 2; 
   width: 15px;
   text-align: center;
   border: 1px solid rgb(224, 224, 224);
@@ -261,10 +261,10 @@
     max-height: calc(90vh - 97px - 20px - 50px); 
     overflow-y: auto;
   }
-  
+
   .cart-product-card {
     display: flex;
-    flex-direction: column; /* Adiciona flex-direction: column */
+    flex-direction: column; 
     align-items: center;
     justify-content: center;
     width: 250px;
@@ -280,7 +280,7 @@
   .quantity-price-container {
     display: flex;
     align-items: center;
-    margin-top: auto; /* Adiciona margin-top: auto para empurrar para a parte inferior */
+    margin-top: auto; 
   }
 
   .cart-product-img {
@@ -310,8 +310,8 @@
 
   .cart-product-info {
     display: flex;
-    flex-direction: row; /* Altera para flex-direction: row */
-    justify-content: space-between; /* Adiciona justify-content: space-between */
+    flex-direction: row; 
+    justify-content: space-between; 
     width: 100%;
     margin-top: 10px;
   }
