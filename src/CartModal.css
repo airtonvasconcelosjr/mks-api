@@ -261,12 +261,26 @@
     max-height: calc(90vh - 97px - 20px - 50px); 
     overflow-y: auto;
   }
+  
   .cart-product-card {
+    display: flex;
+    flex-direction: column; /* Adiciona flex-direction: column */
+    align-items: center;
+    justify-content: center;
     width: 250px;
     height: 220px;
-    flex-direction: column;
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    border-radius: 15px;
+    border-bottom: 25px;
+  }
+
+  .quantity-price-container {
+    display: flex;
     align-items: center;
-    justify-content: flex-start;
+    margin-top: auto; /* Adiciona margin-top: auto para empurrar para a parte inferior */
   }
 
   .cart-product-img {
