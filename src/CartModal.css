@@ -120,7 +120,7 @@
 }
 
 .cart-img {
-  width: 30%;
+  width: 50%;
   height: auto;
 }
 
@@ -144,8 +144,8 @@
 }
 
 .cart-product-img {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
   margin-right: 10px;
 }
@@ -270,7 +270,8 @@
   }
 
   .cart-product-img {
-    width: 55%;
+    margin-top: 10px;
+    width: 110px;
     height: auto;
     margin-bottom: 0px;
   }
