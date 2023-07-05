@@ -5,8 +5,9 @@
 
 ## Capturas de Tela
 
-![Captura de Tela 1](screenshot1.png)
-![Captura de Tela 2](screenshot2.png)
+![Captura de Tela 1](![image](https://github.com/airtonvasconcelosjr/mks-api/assets/101413097/a2615886-4d50-4766-89fc-95f27234cd3d)
+![Captura de Tela 2](![image](https://github.com/airtonvasconcelosjr/mks-api/assets/101413097/e6c6bfee-af8c-4aad-b5cb-f1ff84cbf9c0)
+
 
 ## Instalação
 
