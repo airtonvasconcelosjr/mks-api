@@ -5,8 +5,10 @@
 
 ## Capturas de Tela
 
-![Captura de Tela 1](![image](https://github.com/airtonvasconcelosjr/mks-api/assets/101413097/a2615886-4d50-4766-89fc-95f27234cd3d))
-![Captura de Tela 2](![image](![image](https://github.com/airtonvasconcelosjr/mks-api/assets/101413097/47c7d986-cd90-481d-ae7e-57b16e4b7a41))
+![Captura de Tela 1]![image](https://github.com/airtonvasconcelosjr/mks-api/assets/101413097/5134d95d-f64d-4387-ae7b-d3737457e9ac)
+
+![Captura de Tela 2]![image](https://github.com/airtonvasconcelosjr/mks-api/assets/101413097/cf35c532-2ca3-477d-9447-fae9c009d803)
+
 
 
 ## Instalação
