@@ -1,7 +1,7 @@
 # MKS API TEST
 
 
-> Este app foi criado com intuito de praticar habilidades de desenvolvimento front-end utilizando React como linguagem principal
+> Este app foi criado com intuito de praticar habilidades de desenvolvimento front-end utilizando React como linguagem principal consumindo API de produtos de terceiros;
 
 ## Capturas de Tela
 
